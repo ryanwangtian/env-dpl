@@ -1,0 +1,70 @@
+@import "../common/sass/base.scss";
+
+$menu-width: 240px;
+
+ul.env-left-menu, ul.env-left-menu * {
+    box-sizing: border-box;
+}
+
+ul.env-left-menu, ul.env-left-menu ul {
+    @extend %reset-ul;
+}
+
+ul.env-left-menu {
+    width: $menu-width;
+    border: $border;
+    margin: 10px;
+    background: map-get($bg-colors, secondary);
+
+    li {
+        a {
+            display: block;
+            position: relative;
+            border-top: $border;
+            padding: 10px 20px 10px 10px;
+            background: map-get($bg-colors, primary);
+            font-size: 14px;
+            color: #333;
+            cursor: pointer;
+        }
+        &.active > a {
+            border-bottom: $border;
+        }
+        &:first-child > a {
+            border-top: 0;
+        }
+
+        a > span.eln-item-arrow {
+            display: block;
+            position: absolute;
+            top: 50%;
+            right: 4px;
+            margin-top: -6px;
+            width: 12px;
+            height: 12px;
+            background-image: 
+                url("data:image/svg+xml;utf8,<svg width='12' height='12' xmlns='http://www.w3.org/2000/svg'><g><polyline points='0,3 6,9 12,3' stroke-width='1' stroke='#333' fill='transparent'/></g></svg>");
+            background-size: contain;
+            transition: all .5s;
+       }
+        &.active > a > span.eln-item-arrow {
+            transform: rotate(-180deg);
+        }
+    }
+}
+
+ul.env-left-menu li ul {
+    display: none;
+    li {
+        a {
+            background: transparent;
+            display: block;
+            margin: 0 10px;
+            padding-left: 0;
+        }
+        & > a > span.eln-item-arrow {
+            right: 0;
+            transform: rotate(-90deg);
+        }
+    }
+}
