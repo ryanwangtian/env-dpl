@@ -1,7 +1,8 @@
 var gulp = require('gulp'),
 	$ = require('gulp-load-plugins')()
 	browserSync = require('browser-sync'),
-	reload = browserSync.reload;
+	reload = browserSync.reload,
+	supportedBrowsers = ['ie >= 8', 'last 2 Chrome versions', 'Firefox >= 20'];
 
 gulp.task('clean:dev', function() {
 	return gulp.src('.tmp')
@@ -17,6 +18,9 @@ gulp.task('clean:dev', function() {
 gulp.task('sass:dev', function () {
   return gulp.src(['./src/**/*.scss', '!./src/common/**/*.scss'])
     .pipe($.sass({outputStyle: 'expanded'}).on('error', $.sass.logError))
+    .pipe($.autoprefixer({
+    	browsers: supportedBrowsers
+    }))
     .pipe(gulp.dest('./.tmp'))
     .pipe(reload({stream: true}));
 });
@@ -58,6 +62,9 @@ gulp.task('js:dist', function () {
 gulp.task('sass:dist', function () {
   return gulp.src(['./src/**/*.scss', '!./src/common/**/*.scss'])
     .pipe($.sass({outputStyle: 'expanded'}).on('error', $.sass.logError))
+    .pipe($.autoprefixer({
+    	browsers: supportedBrowsers
+    }))
     .pipe(gulp.dest('./dist'))
     .pipe($.minifyCss())
     .pipe($.rename({
@@ -66,6 +73,6 @@ gulp.task('sass:dist', function () {
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('bulid', ['clean:dist', 'js:dist', 'sass:dist'], function() {
+gulp.task('build', function() {
     $.runSequence('clean:dist', ['js:dist', 'sass:dist']);
 });

@@ -5,7 +5,8 @@ ul.env-left-menu, ul.env-left-menu ul {
 }
 
 ul.env-left-menu, ul.env-left-menu * {
-  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
 }
 
 ul.env-left-menu {
@@ -48,7 +49,8 @@ ul.env-left-menu li a > span.eln-item-arrow {
 }
 
 ul.env-left-menu li.active > a > span.eln-item-arrow {
-  transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+      transform: rotate(-180deg);
 }
 
 ul.env-left-menu li ul {
@@ -64,5 +66,6 @@ ul.env-left-menu li ul li a {
 
 ul.env-left-menu li ul li > a > span.eln-item-arrow {
   right: 0;
-  transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+      transform: rotate(-90deg);
 }

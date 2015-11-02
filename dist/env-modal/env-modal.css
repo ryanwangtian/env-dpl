@@ -1,5 +1,6 @@
 div.env-modal-mask, div.env-modal-mask * {
-  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
 }
 
 div.env-modal-mask {
@@ -37,7 +38,8 @@ div.env-modal-dialog button.env-modal-btn-close {
 }
 
 div.env-modal-dialog button.env-modal-btn-close:hover {
-  transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+      transform: rotate(90deg);
 }
 
 div.env-modal-dialog button.env-modal-btn-close:active {
