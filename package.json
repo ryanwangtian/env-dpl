@@ -1,15 +1,15 @@
 {
-  "name": "dpl_test",
-  "version": "1.0.0",
-  "description": "haha",
+  "name": "env-dpl",
+  "version": "0.0.1",
+  "description": "Envision Design Pattern Library",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "haha"
+    "Envision", "DPL"
   ],
-  "author": "hah",
+  "author": "Ryan Wang",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.9.11",
