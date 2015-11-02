@@ -1,0 +1,68 @@
+ul.env-left-menu, ul.env-left-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.env-left-menu, ul.env-left-menu * {
+  box-sizing: border-box;
+}
+
+ul.env-left-menu {
+  width: 240px;
+  border: 1px solid #ccc;
+  margin: 10px;
+  background: #e4e4e4;
+}
+
+ul.env-left-menu li a {
+  display: block;
+  position: relative;
+  border-top: 1px solid #ccc;
+  padding: 10px 20px 10px 10px;
+  background: #fff;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+ul.env-left-menu li.active > a {
+  border-bottom: 1px solid #ccc;
+}
+
+ul.env-left-menu li:first-child > a {
+  border-top: 0;
+}
+
+ul.env-left-menu li a > span.eln-item-arrow {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  margin-top: -6px;
+  width: 12px;
+  height: 12px;
+  background-image: url("data:image/svg+xml;utf8,<svg width='12' height='12' xmlns='http://www.w3.org/2000/svg'><g><polyline points='0,3 6,9 12,3' stroke-width='1' stroke='#333' fill='transparent'/></g></svg>");
+  background-size: contain;
+  transition: all .5s;
+}
+
+ul.env-left-menu li.active > a > span.eln-item-arrow {
+  transform: rotate(-180deg);
+}
+
+ul.env-left-menu li ul {
+  display: none;
+}
+
+ul.env-left-menu li ul li a {
+  background: transparent;
+  display: block;
+  margin: 0 10px;
+  padding-left: 0;
+}
+
+ul.env-left-menu li ul li > a > span.eln-item-arrow {
+  right: 0;
+  transform: rotate(-90deg);
+}
