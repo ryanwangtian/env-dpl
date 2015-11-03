@@ -43,9 +43,24 @@ ul.env-left-menu li a > span.eln-item-arrow {
   margin-top: -6px;
   width: 12px;
   height: 12px;
-  background-image: url("data:image/svg+xml;utf8,<svg width='12' height='12' xmlns='http://www.w3.org/2000/svg'><g><polyline points='0,3 6,9 12,3' stroke-width='1' stroke='#333' fill='transparent'/></g></svg>");
-  background-size: contain;
   transition: all .5s;
+}
+
+ul.env-left-menu li a > span.eln-item-arrow:before {
+  display: block;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 2px;
+  width: 8px;
+  height: 8px;
+  border: 1px solid #333;
+  border-left-color: transparent;
+  border-top-color: transparent;
+  -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
 }
 
 ul.env-left-menu li.active > a > span.eln-item-arrow {
