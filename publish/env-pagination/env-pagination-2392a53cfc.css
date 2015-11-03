@@ -1,0 +1,60 @@
+.epg-cntr {
+  user-modify: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  color: #28c6de;
+}
+
+.epg-cntr a {
+  display: inline-block;
+  width: auto;
+  height: 18px;
+  padding: 2px 5px;
+  margin: 2px;
+  border: #28c6de solid 1px;
+  color: #28c6de;
+  cursor: pointer;
+}
+
+.epg-cntr a:hover {
+  padding: 1px 4px;
+  border-width: 2px;
+}
+
+.epg-cntr .pg-btn.cur {
+  background: #28c6de;
+  color: #fff;
+}
+
+.epg-pg-input {
+  width: 20px;
+  height: 18px;
+  padding: 2px 5px;
+  margin: 2px;
+  border: #28c6de solid 1px;
+  background: transparent;
+  color: #28c6de;
+}
+
+.epg-tp {
+  margin: 0 2px;
+}
+
+.epg-tp span {
+  margin: 2px;
+}
+
+.epg-ipp {
+  -webkit-appearance: none;
+  width: 40px;
+  height: 24px;
+  padding: 0;
+  margin: 2px;
+  border: #28c6de solid 1px;
+  background: transparent;
+  color: #28c6de;
+}
+
+.epg-ipp option {
+  background: #06171c;
+}

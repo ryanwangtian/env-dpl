@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="env-pagination/env-pagination-2392a53cfc.css" />
+
+    <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="env-pagination/env-pagination-3ebece59c5.js"></script>
+</head>
+<body style="font-size: 14px; margin: 0; padding: 0; font-family: Microsoft YaHei, Arial;">
+	<div id="p1"></div>
+    <div id="p2"></div>
+    <div id="p3"></div>
+    <div id="p4"></div>
+
+    <script>
+        $("document").ready(function(){
+            $("#p1").envPagination({
+            	totalItems: 35,
+            	displayPages: 5,
+				edgePages:1,
+            });
+            $("#p2").envPagination({
+            	totalItems: 75,
+            	displayPages: 5,
+				edgePages:1,
+            });
+            $("#p3").envPagination({
+            	totalItems: 85,
+            	displayPages: 5,
+				edgePages:1
+            });
+            $("#p4").envPagination({
+            	totalItems: 125,
+            	displayPages: 5,
+				edgePages:1
+            });
+
+            var xx = $("<div></div>");
+            xx.envPagination();
+            xx.appendTo("body");
+        });
+    </script>
+</body>
+</html>
