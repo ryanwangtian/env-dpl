@@ -12,14 +12,30 @@
 	<div id="p1"></div>
     <div id="p2"></div>
     <div id="p3"></div>
+    <div id="p4"></div>
 
     <script>
         $("document").ready(function(){
-            $("#p1").envPagination({totalItems: 125});
-            $("#p2").envPagination({totalItems: 140});
-            $("#p3").envPagination({totalItems: 300, callback: function(page) {
-                alert(page);
-            }});
+            $("#p1").envPagination({
+            	totalItems: 35,
+            	displayPages: 5,
+				edgePages:1,
+            });
+            $("#p2").envPagination({
+            	totalItems: 75,
+            	displayPages: 5,
+				edgePages:1,
+            });
+            $("#p3").envPagination({
+            	totalItems: 85,
+            	displayPages: 5,
+				edgePages:1
+            });
+            $("#p4").envPagination({
+            	totalItems: 125,
+            	displayPages: 5,
+				edgePages:1
+            });
 
             var xx = $("<div></div>");
             xx.envPagination();
