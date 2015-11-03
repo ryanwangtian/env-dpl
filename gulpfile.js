@@ -40,9 +40,9 @@ gulp.task('serve', ['js:dev', 'sass:dev'], function() {
         }
     });
 
-    gulp.watch("./src/**/*.scss", ['sass:dev']);
-    gulp.watch("./src/**/*.js", ['js:dev']);
-    gulp.watch("./demos/*.html", reload);
+    gulp.watch('./src/**/*.scss', ['sass:dev']);
+    gulp.watch('./src/**/*.js', ['js:dev']);
+    gulp.watch('./demos/*.html', reload);
 });
 
 
@@ -76,3 +76,33 @@ gulp.task('sass:dist', function () {
 gulp.task('build', function() {
     $.runSequence('clean:dist', ['js:dist', 'sass:dist']);
 });
+
+
+
+gulp.task('clean:pub', function() {
+    return gulp.src('./publish')
+        .pipe($.clean({force: true}));
+});
+gulp.task('copy:pub', ['clean:pub'], function() {
+    return gulp.src(['./dist/**/*.*', '!./dist/**/*.min.js', '!./dist/**/*.min.css', './demos/**/*.*'])
+        .pipe(gulp.dest('./publish'));
+});
+
+gulp.task('rev:pub', ['copy:pub'], function(){
+  	return gulp.src(['./publish/**/*.css', './publish/**/*.js', '!./publish/**/*.min.js'])
+	    .pipe($.rev())
+	    .pipe(gulp.dest('./publish'))
+	    .pipe($.rev.manifest())
+	    .pipe(gulp.dest('./publish'));
+});
+
+gulp.task('revReplace:pub', ['rev:pub'], function(){
+  	var manifest = gulp.src('./publish/rev-manifest.json');
+ 
+  	return gulp.src('./publish/*.html')
+	    .pipe($.revReplace({manifest: manifest}))
+	    .pipe(gulp.dest('./publish'));
+});
+
+
+gulp.task('publish', ['revReplace:pub'], function() {});
