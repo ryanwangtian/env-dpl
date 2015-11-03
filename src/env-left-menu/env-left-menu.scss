@@ -42,10 +42,9 @@ ul.env-left-menu {
             margin-top: -6px;
             width: 12px;
             height: 12px;
-            background-image: 
-                url("data:image/svg+xml;utf8,<svg width='12' height='12' xmlns='http://www.w3.org/2000/svg'><g><polyline points='0,3 6,9 12,3' stroke-width='1' stroke='#333' fill='transparent'/></g></svg>");
-            background-size: contain;
             transition: all .5s;
+            
+            @include icon-arrow(12px, 1px, #333);
        }
         &.active > a > span.eln-item-arrow {
             transform: rotate(-180deg);
