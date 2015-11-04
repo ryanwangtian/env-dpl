@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="farmSelector.css" />
+    <link rel="stylesheet" href="sideButton.css" />
+    <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="farmSelector.js"></script>
+    <script type="text/javascript" src="sideButton.js"></script>
+    <script type="text/javascript">
+       $(function(){
+            $("#sb").sideBox({
+                onHidden: function() {
+                    xx.cancel(false);
+                },
+            });
+            xx = $("#xx")
+                .farmSelector({
+                    onConfirm: function() {
+                        $("#sb").sideBox("toggleBox");
+                    },
+                    onCancel: function() {
+                        $("#sb").sideBox("toggleBox");
+                    }
+                })
+                .farmSelector("getInstance");
+            xx.addItem({groupId: "a1", id:"b1", name:"B1"});
+            xx.addItem({groupId: "a1", id:"b2", name:"B2"});
+            xx.addItem({groupId: "a3", id:"b3"});
+            xx.addItem({groupId: "a5", id:"b4", name:"B4"});
+            xx.addGroup({id:"a1", name:"A1"});
+            xx.addGroup({id:"a2", name:"A2"});
+            xx.addGroup({id:"a3", name:"A3"});
+
+            for (var i = 0 ; i < 15; i++) {
+                xx.addGroup({id:"a3" + i, name:"A3"});
+            }
+
+       });
+    </script>
+    <style type="text/css">
+        html {background: #062e34 url(tab-bg.png); background-size: 100%; font-family: "Microsoft YaHei"}
+
+    </style>
+</head>
+<body>
+    <div id="sb">
+        <div id="xx"></div>
+    </div>
+</body>
+</html>

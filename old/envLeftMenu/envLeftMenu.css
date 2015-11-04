@@ -1,0 +1,244 @@
+ul.env-left-menu {
+    /*background: rgba(0,0,0,.2);*/
+    background: url("imgs/line.png") no-repeat bottom;
+    color: #fff;
+    font-family: Microsoft YaHei, Arial;
+    font-size: 1em;
+}
+
+ul.env-left-menu, ul.env-left-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    /*border-bottom: 1px solid rgba(40,78,86,.5);*/
+}
+
+ul.env-left-menu ul {
+    /*padding-left: 30px;*/
+    background: url("imgs/line.png") no-repeat bottom;
+}
+
+ul.env-left-menu li:not(.active) ul {
+    display: none;
+}
+
+/*all menu items*/
+ul.env-left-menu li > a {
+    display: block;
+    cursor: pointer;
+    /*border-bottom: 1px solid rgba(40,78,86,.5);*/
+    background: url("imgs/line.png") no-repeat bottom;
+    padding-top: 14px;
+    padding-bottom: 10px;
+    line-height: 1em;
+}
+
+ul.env-left-menu > li:last-child:not(.active) > a, ul.env-left-menu ul > li:last-child:not(.active) > a {
+    /*border-bottom-width: 0;*/
+    background-image: none;
+}
+ul.env-left-menu > li:last-child > ul, ul.env-left-menu ul > li:last-child > ul {
+    /*border-bottom: 0;*/
+    background-image: none;
+}
+
+/*level 0 menu item*/
+ul.env-left-menu > li > a {
+    font-weight: bold;
+    background-color: rgba(0,0,0,.1);
+}
+ul.env-left-menu > li > a:hover, ul.env-left-menu > li.active > a {
+    background-color: rgba(0,0,0,.3);
+    color: #eb6100;
+}
+ul.env-left-menu > li > ul {
+}
+
+/*all but level0*/
+ul.env-left-menu ul > li > a {
+    color: #959595;
+}
+ul.env-left-menu ul > li > a:hover, ul.env-left-menu ul > li.active > a {
+    color: #fff;
+    background-color: rgba(0,0,0,.15);
+}
+
+/*level1*/
+ul.env-left-menu li.level1 > a {
+    padding-left: 20px;
+    background-position: 20px 100%;
+}
+
+/*level2*/
+ul.env-left-menu li.level2 > a {
+    padding-left: 40px;
+    background-position: 40px 100%;
+}
+
+
+ul.env-left-menu li a span.eln-item-icon {
+	display: inline-block;
+	margin: auto 10px;
+    width: 16px;
+    height: 16px;
+    background: url("imgs/nav_icons_16.png") no-repeat;
+}
+ul.env-left-menu li a span.eln-item-title {
+    display: inline-block;
+    height: 16px;
+    max-width: calc(100% - 64px);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+ul.env-left-menu > li:hover > a span.eln-item-icon {
+    background-image: url("imgs/nav_icons_active_16.png");
+}
+ul.env-left-menu > li.active > a span.eln-item-icon {
+    background-image: url("imgs/nav_icons_active_16.png");
+}
+
+ul.env-left-menu li > a > span.eln-item-arrow {
+	display: inline-block;
+	float: right;
+    width: 16px;
+    height: 16px;
+	margin-right: 10px;
+    background: url("imgs/nav_icons_16.png") no-repeat;
+    background-position-y: -32px;
+}
+ul.env-left-menu li.active > a > span.eln-item-arrow {
+    background-position-y: -16px;
+}
+
+
+
+/*icons*/
+.env-icon-16 {width: 16px; height: 16px; background: url("imgs/nav_icons_16.png") no-repeat;}
+.env-icon-env-logo {background-position-y: 0px !important;}
+.env-icon-arrow-down {background-position-y: -16px !important;}
+.env-icon-arrow-left {background-position-y: -32px !important;}
+.env-icon-monitor {background-position-y: -48px !important;}
+.env-icon-line-chart {background-position-y: -64px !important;}
+.env-icon-pie {background-position-y: -80px !important;}
+.env-icon-inquiry {background-position-y: -96px !important;}
+.env-icon-book {background-position-y: -112px !important;}
+.env-icon-document {background-position-y: -128px !important;}
+
+
+
+ul.env-left-menu.mini {
+    color: #fff;
+    font-family: Microsoft YaHei, Arial;
+    font-size: 1em;
+    cursor: pointer;
+    background-image: none;
+}
+ul.env-left-menu.mini, ul.env-left-menu.mini ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+/*level0 item*/
+ul.env-left-menu.mini > li {
+    position: relative;
+}
+ul.env-left-menu.mini > li:hover,
+ul.env-left-menu.mini > li.active {
+    background: rgba(0,0,0,.2);
+}
+ul.env-left-menu.mini > li > a {
+    display: block;
+    padding: 12px 0;
+    background: none;
+    text-align: center;
+}
+/*level0 icon*/
+ul.env-left-menu.mini > li > a span.eln-item-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url("imgs/nav_icons_16.png") no-repeat;
+}
+ul.env-left-menu.mini > li:hover > a span.eln-item-icon {
+    background-image: url("imgs/nav_icons_active_16.png");
+}
+ul.env-left-menu.mini > li.active > a span.eln-item-icon {
+    background-image: url("imgs/nav_icons_active_16.png");
+}
+/*level0 title and arrow*/
+ul.env-left-menu.mini > li > a span.eln-item-title,
+ul.env-left-menu.mini > li > a span.eln-item-arrow {
+    display: none !important;
+}
+
+/*level1 container*/
+ul.env-left-menu.mini > li.level0 > ul {
+    display: none !important;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background: rgba(0,0,0,.9);
+    width: auto;
+    z-index: 100;
+}
+ul.env-left-menu.mini > li.level0:hover > ul {
+    display: block !important;
+}
+/*level1 item*/
+ul.env-left-menu.mini li.level1 > a {
+    display: block;
+    padding: 10px;
+    white-space: nowrap;
+}
+ul.env-left-menu.mini li.level1:hover > a,
+ul.env-left-menu.mini li.level1.active > a{
+    background: rgba(255,255,255,.1);
+}
+
+/*level2 container*/
+ul.env-left-menu.mini li.level1 > ul {
+    display: none;
+}
+ul.env-left-menu.mini li.level1.active > ul {
+    display: block;
+}
+/*level2 item*/
+ul.env-left-menu.mini li.level2 > a {
+    display: block;
+    color: #959595;
+    padding: 10px 10px 10px 30px;
+    white-space: nowrap;
+}
+ul.env-left-menu.mini li.level2:hover > a,
+ul.env-left-menu.mini li.level2.active > a {
+    background: rgba(255,255,255,.05);
+}
+
+
+ul.env-left-menu.mini li:not(.level0) > a {
+    position: relative;
+    padding-right: 30px;
+}
+ul.env-left-menu.mini li:not(.level0) > a > span.eln-item-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    background: url("imgs/nav_icons_16.png") no-repeat;
+}
+ul.env-left-menu.mini li:not(.level0) > a > span.eln-item-arrow {
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 10px;
+    right: 10px;
+    background: url("imgs/nav_icons_16.png") no-repeat;
+    background-position-y: -32px !important;
+}
+ul.env-left-menu.mini li.active:not(.level0) > a > span.eln-item-arrow {
+    background-position-y: -16px !important;
+}

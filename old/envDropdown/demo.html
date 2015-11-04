@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/envDropdown.css">
+<script src="jquery-1.11.0.min.js" type="text/javascript"></script>
+<script src="js/envDropdownBox.js" type="text/javascript"></script>
+<script src="js/envDropdownSelect.js" type="text/javascript"></script>
+<style type="text/css">
+
+/* ---------------------scrollbar css begin----------------------- */
+::-webkit-scrollbar {width: 15px;height:15px;}
+::-webkit-scrollbar-track {-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.7);-webkit-border-radius: 6px;border-radius: 6px;}
+::-webkit-scrollbar-track-piece {background: rgba(36, 36, 36, 0.7);}
+::-webkit-scrollbar-thumb {-webkit-border-radius: 6px;border-radius: 6px;background: rgba(18, 18, 18, 1);-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);}
+::-webkit-scrollbar-thumb:window-inactive {background: rgba(31, 67, 85, 0.4);}
+::-webkit-scrollbar-corner  {background:#121212;}
+html {
+	scrollbar-arrow-color: #fff;
+    scrollbar-base-color: #121212;
+    scrollbar-darkshadow-color: #0a0a0a;
+    scrollbar-3dlight-color: #121212;
+    scrollbar-highlight-color: #2c2c2c;
+    scrollbar-shadow-color: #121212;
+    scrollbar-track-color: #242424;
+}
+/* ---------------------scrollbar css end----------------------- */
+
+html {
+	background: #062e34;
+	color: #fff;
+}
+.s1 {
+	width: 150px;
+	height: 30px;
+}
+.s2 {
+	width: 200px;
+	height: 25px;
+}
+</style>
+<script type="text/javascript">
+$(document).ready(function() {
+	// $("select").envDropdownBox();
+	$("#s1").envDropdownSelect({
+		multiSelect: false,
+		useGroup: false,
+		change: function(obj) {
+			addLog("s1", obj.getSelectedItemName().join(", "));
+		}
+	});
+	$("#s2").envDropdownSelect({
+		multiSelect: false,
+		useGroup: true,
+		showGroupHeader: true, //2.1 显示分组名称 2.2不显示
+		mutexGroup: true,
+		change: function(obj) {
+			addLog("s2", obj.getSelectedItemName().join(", "));
+		}
+	});
+	$("#s3").envDropdownSelect({
+		multiSelect: false,
+		useGroup: true,
+		showGroupHeader: true, //3.1 显示分组名称 3.2不显示
+		mutexGroup: false,
+		change: function(obj) {
+			addLog("s3", obj.getSelectedItemName().join(", "));
+		}
+	});
+	$("#s4").envDropdownSelect({
+		multiSelect: true,
+		useGroup: false,
+		change: function(obj) {
+			addLog("s4", obj.getSelectedItemName().join(", "));
+		}
+	});
+	$("#s5").envDropdownSelect({
+		multiSelect: true,
+		useGroup: true,
+		showGroupHeader: true, //2.1 显示分组名称 2.2不显示
+		mutexGroup: false,
+		change: function(obj) {
+			addLog("s5", obj.getSelectedItemName().join(", "));
+		}
+	});
+	$("#s6").envDropdownSelect({
+		multiSelect: true,
+		useGroup: true,
+		showGroupHeader: true, //3.1 显示分组名称 3.2不显示
+		mutexGroup: true,
+		change: function(obj) {
+			addLog("s6", obj.getSelectedItemName().join(", "));
+		}
+	});
+
+	for (var i = 1; i <= 6; i++ ){
+		$("#s" + i).envDropdownSelect("addItem", {name: "测试0", value: "0", group: 1, hahaha: "yoyoyo"});
+		$("#s" + i).envDropdownSelect("addItem", {name: "测试1", value: "1", group: 1});
+		$("#s" + i).envDropdownSelect("addItem", {name: "测试2", value: "2", group: 1});
+		$("#s" + i).envDropdownSelect("addItem", {name: "测试3", value: "3", group: 1});
+		$("#s" + i).envDropdownSelect("addItem", {name: "测试4", value: "4", group: 2});
+		$("#s" + i).envDropdownSelect("addItem", {name: "测试5", value: "5", group: 2});
+		$("#s" + i).envDropdownSelect("addItem", {name: "测试6", value: "6", group: 2});
+		$("#s" + i).envDropdownSelect("addItem", {name: "测试7", value: "7"});
+		$("#s" + i).envDropdownSelect("addItem", {name: "测试8", value: "8", group: 3});
+		$("#s" + i).envDropdownSelect("addGroup", {value: 1, name: "分组a"});
+		$("#s" + i).envDropdownSelect("addGroup", {value : 2, name: "分组b"});
+	}
+	// $("#aa").envDropdownBox("append", $("<div style='width:auto;height:200px; background: black'><span>123</span></div>"));
+	// $(xxx[1]).envDropdownBox("append", $("<div style='width:100px;height:100px; background: black'></div>"));
+
+	function addLog(id, text) {
+		$("#log").append("<p>" + id + ": " + text + "</p>");
+	}
+});
+</script>
+</head>
+
+<body>
+  1.单选无分组: 
+  <select id='s1' class="s1" mutiSelect useGroup="true"></select>
+  2.单选有分组（仅可选一个）
+  <select id='s2' class="s1" mutiSelect useGroup="true"></select>
+  3.单选有分组（每组可选一个）
+  <select id='s3' class="s1" mutiSelect useGroup="true"></select>
+  <br><br>
+  4.多选无分组
+  <select id='s4' class="s1" mutiSelect useGroup="true"></select>
+	5.多选有分组（组间无关联）
+  <select id='s5' class="s1" mutiSelect useGroup="true"></select>
+  6.多选有分组（组间互斥，仅可选同组的）
+  <select id='s6' class="s1" mutiSelect useGroup="true"></select>
+ 	<br><br>
+
+<div id="log"></div>
+
+
+	
+</body>
+</html>

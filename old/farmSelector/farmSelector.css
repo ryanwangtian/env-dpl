@@ -1,0 +1,103 @@
+.fs-wrapper {
+    /*border: 1px solid #28c6de;*/
+    background: rgba(0,0,0,.9);
+    width: 400px;
+}
+.fs-content {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color: #959595;
+    max-height: 500px;
+    overflow: auto;
+}
+.fs-group {
+    margin: 5px;
+}
+.fs-group-header {
+    display: block;
+    width: 100px;
+    float: left;
+    margin: 5px;
+    color: #33cccc;
+    cursor: pointer;
+}
+.fs-group-header:hover {
+    text-decoration: underline;
+}
+
+.fs-item-cntr {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    float: left;
+    width: calc(100% - 130px);
+}
+.fs-item {
+    float: left;
+    margin: 5px;
+    cursor: pointer;
+}
+.fs-item.selected {
+    color: #e15d00;
+}
+.fs-item:hover {
+    text-decoration: underline;
+}
+
+.fs-group:after, .fs-item-cntr:after{
+    content: " ";   
+    display: block;   
+    height: 0;   
+    clear: both;
+}
+
+.fs-btnpanel {
+    border-top: 1px solid rgba(40,198,222,.2);
+    /* height: 50px; */    
+    padding: 10px;
+    text-align: right;    
+    /* line-height: 50px; */
+}
+.fs-btnpanel:after {
+    content: " ";   
+    display: block;   
+    height: 0;   
+    clear: both;
+}
+
+.fs-btnpanel button {
+    width: auto;
+    height: 30px;
+    margin: 0 5px;
+    padding: 0 10px;
+    border: 1px solid #28c6de;
+    border-radius: 4px;
+    background: transparent;
+    color: #28c6de;
+    cursor: pointer;
+    display: block;
+    float: right;
+}
+.fs-btnpanel button:hover {
+    background: rgba(40,198,222,.2);
+}
+
+.fs-btn-img {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url(icon.png);
+    vertical-align: middle;
+    margin: 0 5px 0 0;
+}
+.fs-btn-confirm .fs-btn-img  {
+    background-position: 0px 0px;
+}
+.fs-btn-cancel .fs-btn-img  {
+    background-position: 0px -20px;
+}
+
+.fs-btn-text {
+    vertical-align: middle;
+}

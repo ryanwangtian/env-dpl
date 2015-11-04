@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="envPagination.js"></script>
+    <script>
+        $("document").ready(function(){
+            var head = document.getElementsByTagName('head')[0];
+            var link = document.createElement('link');
+            link.href = "envPagination.css";
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            head.appendChild(link);
+
+
+
+            $("#p1").envPagination({totalItems: 125});
+            $("#p2").envPagination({totalItems: 140});
+            $("#p3").envPagination({totalItems: 300, callback: function(page) {
+                alert(page);
+            }});
+
+            var xx = $("<div></div>");
+            xx.envPagination();
+            xx.appendTo("body");
+        });
+    </script>
+</head>
+<body>
+    <div id="p1"></div>
+    <div id="p2"></div>
+    <div id="p3"></div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+1.单选无分组
+multiSelect: false,
+useGroup: false,
+
+2.单选有分组（仅可选一个）
+multiSelect: false,
+useGroup: true,
+showGroupHeader: true, //2.1 显示分组名称 2.2不显示 
+mutexGroup: true, 
+
+3.单选有分组（每组可选一个）
+multiSelect: false,
+useGroup: true,
+showGroupHeader: true, //3.1 显示分组名称 3.2不显示 
+mutexGroup: false, 
+
+4.多选无分组
+multiSelect: true,
+useGroup: false,
+
+5.多选有分组（组间无关联）
+multiSelect: true,
+useGroup: true,
+showGroupHeader: true, //2.1 显示分组名称 2.2不显示 
+mutexGroup: false, 
+
+6.多选有分组（组间互斥，仅可选同组的）
+multiSelect: true,
+useGroup: true,
+showGroupHeader: true, //3.1 显示分组名称 3.2不显示 
+mutexGroup: true, 
