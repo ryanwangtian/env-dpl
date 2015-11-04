@@ -2,7 +2,7 @@
     user-modify: none;
     -webkit-user-select: none;
     -ms-user-select: none;
-    color: #28c6de;
+    color: #333;
 }
 
 .epg-cntr a {
@@ -11,8 +11,8 @@
     height: 18px;
     padding: 2px 5px;
     margin: 2px;
-    border: #28c6de solid 1px;
-    color: #28c6de;
+    border: #333 solid 1px;
+    color: #333;
     cursor: pointer;
 }
 
@@ -22,7 +22,7 @@
 }
 
 .epg-cntr .pg-btn.cur {
-    background: #28c6de;
+    background: #333;
     color: #fff;
 }
 
@@ -31,9 +31,9 @@
     height: 18px;
     padding: 2px 5px;
     margin: 2px;
-    border: #28c6de solid 1px;
+    border: #333 solid 1px;
     background: transparent;
-    color: #28c6de;
+    color: #333;
 }
 
 .epg-tp {
@@ -49,10 +49,10 @@
     height: 24px;
     padding: 0;
     margin: 2px;
-    border: #28c6de solid 1px;
+    border: #333 solid 1px;
     background: transparent;
-    color: #28c6de;
+    color: #333;
 }
 .epg-ipp option {
-    background: rgba(6,23,28,1);
+    background: #fff;
 }
