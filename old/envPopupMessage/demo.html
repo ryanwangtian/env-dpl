@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>popup message</title>
+
+	<style type="text/css">
+        html {background: #062e34; font-family: "Microsoft YaHei"}
+        button {padding: 5px 10px; margin: 20px}
+    </style>
+</head>
+<body>
+	<button onclick="pp.error('滚！不要点我！')">点我</button>
+	<button onclick="pp.warn('你好，请不要再点我了')">点我</button>
+	<button onclick="pp.info('bye')">点我</button>
+
+	<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js.js"></script>
+	<script type="text/javascript">
+		var pp = new $.PopupMessage();
+
+	</script>
+
+</body>
+</html>
