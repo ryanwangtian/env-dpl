@@ -2,5 +2,7 @@
   "env-left-menu/env-left-menu.css": "env-left-menu/env-left-menu-7ca0a44afb.css",
   "env-left-menu/env-left-menu.js": "env-left-menu/env-left-menu-5c4366efbe.js",
   "env-modal/env-modal.css": "env-modal/env-modal-5e707012da.css",
-  "env-modal/env-modal.js": "env-modal/env-modal-9371712b99.js"
+  "env-modal/env-modal.js": "env-modal/env-modal-9371712b99.js",
+  "env-scrollspy/env-scrollspy-menu.css": "env-scrollspy/env-scrollspy-menu-c454b161e9.css",
+  "env-scrollspy/env-scrollspy.js": "env-scrollspy/env-scrollspy-7a0010bd30.js"
 }
