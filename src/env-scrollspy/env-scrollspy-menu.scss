@@ -1,0 +1,139 @@
+@import "../common/sass/base.scss";
+
+$textColor: #000;
+$lineColor: #999;
+$activeColor: #0065ac;
+
+@mixin point ($size: 8px, $left: 4px) {
+    &:after {
+        display: block;
+        content: " ";
+        height: $size;
+        width: $size;
+        position: absolute;
+        top: 50%;
+        left: $left;
+        margin-top: -($size / 2);
+        border-radius: 50%;
+        background: $lineColor;
+    }
+}
+
+@mixin dashed-line ($width: 2px, $space-height: 16px, $left: 7px, $color: #999) {
+    $height: 300px;
+
+    &:before {
+        box-sizing: border-box;
+        display: block;
+        content: " ";
+        height: $height;
+        width: $width;
+        position: absolute;
+        top: 50%;
+        left: $left;
+        margin-top: -($height / 2);
+        background: transparent;
+        border-top: ($height / 2 -  $space-height / 2) solid $color;
+        border-bottom: ($height / 2 -  $space-height / 2) solid $color;
+    } 
+}
+
+@mixin solid-line ($width: 2px, $left: 7px, $color: #999) {
+    $height: 300px;
+
+    &:before {
+        display: block;
+        content: " ";
+        height: $height;
+        width: $width;
+        position: absolute;
+        top: 50%;
+        left: $left;
+        margin-top: -($height / 2);
+        background: $color;
+    }
+}
+
+@mixin active-symbol ($width: 20px, $height: 8px, $left: 0, $color: #0065ac) {
+    &:after {
+        display: block;
+        content: " ";
+        height: $height;
+        width: $width;
+        position: absolute;
+        top: 50%;
+        left: $left;
+        margin-top: -($width / 2)px;
+        border-radius: 0;
+        border-bottom-right-radius: $height ($height / 2);
+        border-top-right-radius: $height ($height / 2);
+        background: $color;
+    }
+}
+
+ul.env-scrollspy-menu, ul.env-scrollspy-menu * {
+    box-sizing: border-box;
+}
+
+ul.env-scrollspy-menu, ul.env-scrollspy-menu ul {
+    @extend %reset-ul;
+}
+
+ul.env-scrollspy-menu {
+    position: relative;
+    box-shadow: 10px;
+
+    &:before, &:after {
+        display: block;
+        box-sizing: border-box;
+        content: " ";
+        height: 16px;
+        width: 16px;
+        border: 2px solid $lineColor;
+        border-radius: 50%;
+        background: transparent;
+    }
+}
+
+ul.env-scrollspy-menu {
+    a {
+        outline: none;
+        overflow: hidden;
+    }
+
+    li > a {
+        position: relative;
+        display: block;
+        font-size: 16px;
+        text-decoration: none;
+        padding: 5px;
+    }
+
+    li.active > a {
+        @include active-symbol(20px, 8px, 0, $activeColor)
+    }
+
+    li.disable > a {
+        color: #ccc;
+
+    }
+
+    > li > a {
+        font-weight: bold;
+        color: $textColor;
+        padding-left: 26px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        @include point(8px);
+
+        @include dashed-line(2px, 16px, 7px, $lineColor);
+    }
+
+    ul > li > a {
+        color: $textColor;
+        padding-left: 42px;
+
+        @include solid-line(2px, 7px, $lineColor);
+    }
+}

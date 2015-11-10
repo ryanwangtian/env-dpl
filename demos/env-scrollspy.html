@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>env-scrollspy</title>
+	<link rel="stylesheet" href="env-scrollspy/env-scrollspy-menu.css" />
+	<style type="text/css">p {height: 130px;}</style>
+
+	<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="env-scrollspy/env-scrollspy.js"></script>
+	<script type="text/javascript" src="env-left-menu/env-left-menu.js"></script>
+</head>
+<body>
+	<div style="position: fixed; top: 10px; right: 10px; width: 200px;">
+		<ul id="menu" class="env-scrollspy-menu">
+			<li>
+				<a href="#index1">1 Index 1</a>
+			</li>
+			<li>
+				<a href="#index2">2 Index</a>
+				<ul></ul>
+			</li>
+			<li>
+				<a href="#index3">3 Index 3</a>
+				<ul>
+					<li><a href="#index3_1">3.1 分类一</a></li>
+					<li><a href="#index3_2">3.2 分类二</a></li>
+					<li><a href="#index3_3">3.3 分类三</a></li>
+					<li><a href="#index3_4">3.4 分类四</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#index4">4 Index 4</a>
+				<ul>
+					<li><a href="#index4_1">4.1 分类一</a></li>
+					<li><a href="#index4_2">4.2 分类二</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#index5">5 Index 5</a>
+				<ul>
+					<li><a href="#index5_1">5.1 分类一</a></li>
+					<li><a href="#index5_2">5.2 分类二</a></li>
+				</ul>
+			</li>
+			<li class="disable">
+				<a>6 Index 6</a>
+				<ul>
+					<li class="disable"><a>6.1 分类一</a></li>
+					<li class="disable"><a>6.2 分类二</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+
+	<h1 id="index1" class="env-scrollspy-item">1 Index 1</h1>
+	<p></p>
+	<h1 id="index2" class="env-scrollspy-item">2 Index 2</h1>
+	<p></p>
+	<h1 id="index3" class="env-scrollspy-item">3 Index 3</h1>
+	<p></p>
+	<h3 id="index3_1" class="env-scrollspy-item">3.1 分类一</h3>
+	<p></p>
+	<h3 id="index3_2" class="env-scrollspy-item">3.2 分类二</h3>
+	<p></p>
+	<h3 id="index3_3" class="env-scrollspy-item">3.3 分类三</h3>
+	<p></p>
+	<h3 id="index3_4" class="env-scrollspy-item">3.4 分类四</h3>
+	<p></p>
+	<h1 id="index4" class="env-scrollspy-item">4 Index 4</h1>
+	<p></p>
+	<h3 id="index4_1" class="env-scrollspy-item">4.1 分类一</h3>
+	<p></p>
+	<h3 id="index4_2" class="env-scrollspy-item">4.2 分类二</h3>
+	<p></p>
+	<h1 id="index5" class="env-scrollspy-item">5 Index 5</h1>
+	<p></p>
+	<h3 id="index5_1" class="env-scrollspy-item">5.1 分类一</h3>
+	<p></p>
+	<h3 id="index5_2" class="env-scrollspy-item">5.2 分类二</h3>
+	<p></p>
+
+	<script type="text/javascript">
+		(function () {
+			$('body').on('env.scrollspy', function (o) {
+				//console.log(o.$activeItem);
+				$('#menu li').removeClass('active').find('a[href=#' + o.$activeItem.attr('id') + ']').parent().addClass('active');
+			});
+
+			$('body').envScrollspy();
+		})();
+	</script>
+</body>
+</html>
