@@ -1,48 +1,48 @@
 ;(function($) {
-	'use strict';
-	var dftOptions = {
-		title: '',
-		buttons: [{
-			text: 'Cancel',
-			click: function() {this.hide();}
-		}, {
-			text: 'OK',
-			click: function() {this.hide();}
-		}]
-	}, 
-	templates = {
-		body: ['<div class="env-modal-mask">', 
-					'<div class="env-modal-dialog">', 
-						'<div class="env-modal-content">', 
-							'<button class="env-modal-btn-close"></button>', 
-							'<header class="env-modal-header">', 
-								'<p class="env-modal-title"></p>', 
-							'</header>', 
-							'<div class="env-modal-body"></div>', 
-							'<footer class="env-modal-footer"></footer>', 
-						'</div>', 
-					'</div>', 
-				'</div>'].join(''),
-		btn: '<button></button>'
-	};
+    'use strict';
+    var dftOptions = {
+        title: '',
+        buttons: [{
+            text: 'Cancel',
+            click: function() {this.hide();}
+        }, {
+            text: 'OK',
+            click: function() {this.hide();}
+        }]
+    }, 
+    templates = {
+        body: ['<div class="env-modal-mask">', 
+                    '<div class="env-modal-dialog">', 
+                        '<div class="env-modal-content">', 
+                            '<button class="env-modal-btn-close"></button>', 
+                            '<header class="env-modal-header">', 
+                                '<p class="env-modal-title"></p>', 
+                            '</header>', 
+                            '<div class="env-modal-body"></div>', 
+                            '<footer class="env-modal-footer"></footer>', 
+                        '</div>', 
+                    '</div>', 
+                '</div>'].join(''),
+        btn: '<button></button>'
+    };
 
 
-	//========= private methods ==============
-	function _addButton(options) {
-		var _self = this,
-			$btn = $(templates.btn)
-					.text(options.text)
-					.click(function() {
-						options.click.call(_self);
-					});
+    //========= private methods ==============
+    function _addButton(options) {
+        var _self = this,
+            $btn = $(templates.btn)
+                    .text(options.text)
+                    .click(function() {
+                        options.click.call(_self);
+                    });
 
-		this.$dialog.find('.env-modal-footer').append($btn);
-	}
-	//========= private methods end ==============
+        this.$dialog.find('.env-modal-footer').append($btn);
+    }
+    //========= private methods end ==============
 
-	//========= constructor ==============
-	function Plugins(element, options) {
-		// do nothing if element is null or element is not a html element
+    //========= constructor ==============
+    function Plugins(element, options) {
+        // do nothing if element is null or element is not a html element
         if (element == null || ! (element instanceof HTMLElement)) {
             return;
         }
@@ -53,7 +53,7 @@
 
         //extend options
         this.options = $.extend(true, {}, dftOptions, {
-        	title: $element.attr('data-title')
+            title: $element.attr('data-title')
         }, options);
 
         this.element = element;
@@ -66,33 +66,33 @@
         this.$dialog.find('.env-modal-title').text(this.options.title);
         //bind to close button
         this.$dialog.find('button.env-modal-btn-close').click(function() {
-        	_self.hide();
+            _self.hide();
         });
         //create buttons
         if (this.options.buttons instanceof Array) {
-        	for (var i = 0; i < this.options.buttons.length; i++) {
-        		_addButton.call(this, this.options.buttons[i]);
-        	}
+            for (var i = 0; i < this.options.buttons.length; i++) {
+                _addButton.call(this, this.options.buttons[i]);
+            }
         }
-	} 
-	//========= constructor end ==============
+    } 
+    //========= constructor end ==============
 
-	//========= public methods ==============
-	Plugins.prototype.constructor = Plugins;
+    //========= public methods ==============
+    Plugins.prototype.constructor = Plugins;
 
-	Plugins.prototype.show = function() {
-		var _self = this;
+    Plugins.prototype.show = function() {
+        var _self = this;
 
-		this.$mask.show();
+        this.$mask.show();
 
-	};
+    };
 
-	Plugins.prototype.hide = function() {
-		this.$mask.hide();
-	}
-	//========= public methods end ==============
+    Plugins.prototype.hide = function() {
+        this.$mask.hide();
+    }
+    //========= public methods end ==============
 
-	//========= jQuery widget ==============
+    //========= jQuery widget ==============
     $.fn.envModal = function(arg) {
         if (this.length == 0) {
             return this;
@@ -116,10 +116,10 @@
             });
 
             if (arg == null) {
-	            return $(this[0]).data("envModal");
-	        } else {
-	        	return this;
-	        }
+                return $(this[0]).data("envModal");
+            } else {
+                return this;
+            }
         }
     };
     //========= jQuery widget end==============

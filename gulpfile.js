@@ -1,17 +1,17 @@
 var gulp = require('gulp'),
-	$ = require('gulp-load-plugins')()
-	browserSync = require('browser-sync'),
-	reload = browserSync.reload,
-	supportedBrowsers = ['ie >= 8', 'last 2 Chrome versions', 'Firefox >= 20'];
+    $ = require('gulp-load-plugins')()
+    browserSync = require('browser-sync'),
+    reload = browserSync.reload,
+    supportedBrowsers = ['ie >= 8', 'last 2 Chrome versions', 'Firefox >= 20'];
 
 gulp.task('clean:dev', function() {
-	return gulp.src('.tmp')
-		.pipe($.clean({force: true}));
+    return gulp.src('.tmp')
+        .pipe($.clean({force: true}));
 });
 
 
 // gulp.task('copy', ['clean:dev'], function() {
-// 	return gulp.src('./src/**/*.js')
+//     return gulp.src('./src/**/*.js')
 //         .pipe(gulp.dest('.tmp'));
 // });
 
@@ -19,21 +19,21 @@ gulp.task('sass:dev', function () {
   return gulp.src(['./src/**/*.scss', '!./src/common/**/*.scss'])
     .pipe($.sass({outputStyle: 'expanded'}).on('error', $.sass.logError))
     .pipe($.autoprefixer({
-    	browsers: supportedBrowsers
+        browsers: supportedBrowsers
     }))
     .pipe(gulp.dest('./.tmp'))
     .pipe(reload({stream: true}));
 });
 
 gulp.task('js:dev', function () {
-	return gulp.src(['./src/**/*.js'])
-		.pipe(gulp.dest('.tmp'))
-		.pipe(reload({stream: true}));
+    return gulp.src(['./src/**/*.js'])
+        .pipe(gulp.dest('.tmp'))
+        .pipe(reload({stream: true}));
 });
 
 
 gulp.task('serve', ['js:dev', 'sass:dev'], function() {
-	browserSync({
+    browserSync({
         server: {
             baseDir: ['demos', '.tmp'],
             directory: true
@@ -63,7 +63,7 @@ gulp.task('sass:dist', function () {
   return gulp.src(['./src/**/*.scss', '!./src/common/**/*.scss'])
     .pipe($.sass({outputStyle: 'expanded'}).on('error', $.sass.logError))
     .pipe($.autoprefixer({
-    	browsers: supportedBrowsers
+        browsers: supportedBrowsers
     }))
     .pipe(gulp.dest('./dist'))
     .pipe($.minifyCss())
@@ -89,19 +89,19 @@ gulp.task('copy:pub', ['clean:pub'], function() {
 });
 
 gulp.task('rev:pub', ['copy:pub'], function(){
-  	return gulp.src(['./publish/**/*.css', './publish/**/*.js', '!./publish/**/*.min.js'])
-	    .pipe($.rev())
-	    .pipe(gulp.dest('./publish'))
-	    .pipe($.rev.manifest())
-	    .pipe(gulp.dest('./publish'));
+      return gulp.src(['./publish/**/*.css', './publish/**/*.js', '!./publish/**/*.min.js'])
+        .pipe($.rev())
+        .pipe(gulp.dest('./publish'))
+        .pipe($.rev.manifest())
+        .pipe(gulp.dest('./publish'));
 });
 
 gulp.task('revReplace:pub', ['rev:pub'], function(){
-  	var manifest = gulp.src('./publish/rev-manifest.json');
+      var manifest = gulp.src('./publish/rev-manifest.json');
  
-  	return gulp.src('./publish/*.html')
-	    .pipe($.revReplace({manifest: manifest}))
-	    .pipe(gulp.dest('./publish'));
+      return gulp.src('./publish/*.html')
+        .pipe($.revReplace({manifest: manifest}))
+        .pipe(gulp.dest('./publish'));
 });
 
 

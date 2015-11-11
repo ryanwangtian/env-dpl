@@ -1,8 +1,8 @@
 $border: 1px solid #ccc !default;
 $bg-colors: (
-	default: #fff,
-	primary: #fff,
-	secondary: #e4e4e4
+    default: #fff,
+    primary: #fff,
+    secondary: #e4e4e4
 );
 
 %reset-ul {
@@ -12,61 +12,61 @@ $bg-colors: (
 } 
 
 @mixin icon-cross ($size: 12px, $line-width: 1px, $color: #333) {
-	&:before {
-		display: block;
-		box-sizing: border-box;
-		content: "";
-		position: absolute;
-		width: 1.414213562373 * $size;
-		height: $line-width;
-		top: (($size - $line-width) / 2);
-		left: (-(1.414213562373 * $size - $size) / 2);
-		transform: rotate(45deg);
-		background: $color;
-	}
-	&:after {
-		display: block;
-		box-sizing: border-box;
-		content: "";
-		position: absolute;
-		width: 1.414213562373 * $size;
-		height: $line-width;
-		top: (($size - $line-width) / 2);
-		left: (-(1.414213562373 * $size - $size) / 2);
-		transform: rotate(-45deg);
-		background: $color;
-	}
+    &:before {
+        display: block;
+        box-sizing: border-box;
+        content: "";
+        position: absolute;
+        width: 1.414213562373 * $size;
+        height: $line-width;
+        top: (($size - $line-width) / 2);
+        left: (-(1.414213562373 * $size - $size) / 2);
+        transform: rotate(45deg);
+        background: $color;
+    }
+    &:after {
+        display: block;
+        box-sizing: border-box;
+        content: "";
+        position: absolute;
+        width: 1.414213562373 * $size;
+        height: $line-width;
+        top: (($size - $line-width) / 2);
+        left: (-(1.414213562373 * $size - $size) / 2);
+        transform: rotate(-45deg);
+        background: $color;
+    }
 }
 
 @mixin icon-arrow ($size: 12px, $line-width: 1px, $color: #333) {
-	$lineWidth: floor(($size / 2) * 1.414213562373);
+    $lineWidth: floor(($size / 2) * 1.414213562373);
 
-	&:before {
-		display: block;
-		box-sizing: border-box;
-		content: "";
-		position: absolute;
-		top: ($size - $lineWidth) / 2 - floor($lineWidth * 1.414213562373 / 4);
-		left: ($size - $lineWidth) / 2;
-		width: $lineWidth;
-		height: $lineWidth;
-		border: $line-width solid $color;
-		border-left-color: transparent;
-		border-top-color: transparent;
-		transform: rotate(45deg);
-	}
-	// &:after {
-	// 	display: block;
-	// 	box-sizing: border-box;
-	// 	content: "";
-	// 	position: absolute;
-	// 	width: 1.414213562373 * $size;
-	// 	height: $line-width;
-	// 	top: (($size - $line-width) / 2);
-	// 	left: (-(1.414213562373 * $size - $size) / 2);
-	// 	border-left: (1.414213562373 * $size / 2 - $line-width / 2) solid transparent;
-	// 	border-right: (1.414213562373 * $size / 2 + $line-width / 2) solid $color;
-	// 	border-radius: ($line-width / 2);
-	// 	transform: rotate(-45deg);
-	// }
+    &:before {
+        display: block;
+        box-sizing: border-box;
+        content: "";
+        position: absolute;
+        top: ($size - $lineWidth) / 2 - floor($lineWidth * 1.414213562373 / 4);
+        left: ($size - $lineWidth) / 2;
+        width: $lineWidth;
+        height: $lineWidth;
+        border: $line-width solid $color;
+        border-left-color: transparent;
+        border-top-color: transparent;
+        transform: rotate(45deg);
+    }
+    // &:after {
+    //     display: block;
+    //     box-sizing: border-box;
+    //     content: "";
+    //     position: absolute;
+    //     width: 1.414213562373 * $size;
+    //     height: $line-width;
+    //     top: (($size - $line-width) / 2);
+    //     left: (-(1.414213562373 * $size - $size) / 2);
+    //     border-left: (1.414213562373 * $size / 2 - $line-width / 2) solid transparent;
+    //     border-right: (1.414213562373 * $size / 2 + $line-width / 2) solid $color;
+    //     border-radius: ($line-width / 2);
+    //     transform: rotate(-45deg);
+    // }
 }
