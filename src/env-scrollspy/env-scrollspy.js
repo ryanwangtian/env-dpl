@@ -1,4 +1,4 @@
-+(function($) {
++function($) {
     'use strict';
 
     /**
@@ -29,7 +29,7 @@
      */
     EnvScrollSpy.DEFAULTS = {
 
-    }
+    };
 
     /**
      * get the offset compared to element's parent
@@ -40,7 +40,7 @@
         if ($.isWindow(this.$scrollElement[0])) {
             return $ele.offset().top - $(window).scrollTop();
         } else {
-            return $ele.offset().top - this.$element.offset().top;             
+            return $ele.offset().top - this.$element.offset().top;
         }
     };
 
@@ -72,7 +72,7 @@
      * @return null
      */
     EnvScrollSpy.prototype.process = function () {
-        var i = 0, 
+        var i = 0,
             $curItem = null;
 
         for (i = 0; i < this.items.length; i++) {
@@ -85,8 +85,8 @@
         //trigger handler
         if (this.$activeItem !== $curItem) {
             this.$activeItem = $curItem;
-            this.$element.triggerHandler({ 
-                type:"env.scrollspy",   
+            this.$element.triggerHandler({
+                type:"env.scrollspy",
                 $activeItem: this.$activeItem
             });
         }
@@ -110,4 +110,4 @@
     };
 
     $.fn.envScrollspy.Constructor = EnvScrollSpy;
-})(jQuery);
+} (jQuery);

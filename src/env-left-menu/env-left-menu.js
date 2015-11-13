@@ -1,4 +1,4 @@
-;(function($) {
++function($) {
     var dftOptions = {
         keys: {
             id: "id",
@@ -36,7 +36,7 @@
 
     //========= private methods ==============
     function _addMenuItem(itemData, parentMenuItem) {
-        if (!(this instanceof EnvLeftMenu) || itemData == null || typeof itemData != 'object') {
+        if (!(this instanceof EnvLeftMenu) || !itemData || typeof itemData != 'object') {
             return;
         }
 
@@ -62,7 +62,7 @@
                 } else {
                     curMenuItem.$childrenCntr.slideDown();
                     curMenuItem.$element.addClass(classNames.active);
-                    var siblings = curMenuItem.parentMenuItem == null ? ins.menuItems : curMenuItem.parentMenuItem.children;
+                    var siblings = !curMenuItem.parentMenuItem ? ins.menuItems : curMenuItem.parentMenuItem.children;
                     for (var i in siblings) {
                         if (siblings[i].$element.hasClass(classNames.active) && siblings[i] != curMenuItem) {
                             siblings[i].$element.removeClass(classNames.active);
@@ -77,7 +77,7 @@
             .text(curMenuItem.name)
             .attr("title", curMenuItem.name);
 
-        if (parentMenuItem == null) {
+        if (!parentMenuItem) {
             curMenuItem.level = 0;
             curMenuItem.$element.addClass(classNames.level + 0);
             this.menuItems.push(curMenuItem);
@@ -90,7 +90,7 @@
             parentMenuItem.$childrenCntr.append(curMenuItem.$element);
         }
 
-        if (itemData[keys.children] != null && itemData[keys.children].length > 0) {
+        if (!!itemData[keys.children] && itemData[keys.children].length > 0) {
             //curMenuItem.$element.addClass(classNames.active);
             curMenuItem.$childrenCntr = $(templates.subMenuCntr);
             curMenuItem.$element.append(curMenuItem.$childrenCntr);
@@ -98,7 +98,7 @@
                 arguments.callee.call(this, itemData[keys.children][i], curMenuItem);
             }
         } else {
-            if (parentMenuItem == null) {
+            if (!parentMenuItem) {
                 curMenuItem.$element.find('.' + classNames.menuItemArrow).remove();
             }
         }
@@ -117,7 +117,7 @@
     //========= constructor ==============
     function EnvLeftMenu(element, options) {
         // do nothing if element is null or element is not a 'ul'
-        if (element == null || ! (element instanceof HTMLUListElement)) {
+        if (!element || ! (element instanceof HTMLUListElement)) {
             return;
         }
 
@@ -157,14 +157,14 @@
 
     //========= jQuery widget ==============
     $.fn.envLeftMenu = function(arg) {
-        if (this.length == 0) {
+        if (this.length === 0) {
             return this;
-        } else if (arg == null) {
+        } else if (!arg) {
             return $(this[0]).data("envLeftMenu");
-        } else if (EnvLeftMenu.prototype[arg] != null) {
+        } else if (!!EnvLeftMenu.prototype[arg]) {
             var func = EnvLeftMenu.prototype[arg];
             var ins = $(this[0]).data("envLeftMenu");
-            if (ins != null) {
+            if (!!ins) {
                 if (typeof func == "function") {
                     return func.apply(ins, Array.prototype.slice.call(arguments, 1));
                 } else {
@@ -174,7 +174,7 @@
         } else {
             return this.each(function() {
                 var instance = $(this).data("envLeftMenu");
-                if (instance == null) {
+                if (!instance) {
                     instance = new EnvLeftMenu(this, arg);
                     $.data(this, "envLeftMenu", instance);
                 }
@@ -183,4 +183,4 @@
     };
     //========= jQuery widget end==============
 
-})(jQuery);
+} (jQuery);

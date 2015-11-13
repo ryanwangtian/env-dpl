@@ -1,4 +1,4 @@
-;(function($) {
++function($) {
     'use strict';
     var dftOptions = {
         title: '',
@@ -9,19 +9,19 @@
             text: 'OK',
             click: function() {this.hide();}
         }]
-    }, 
+    },
     templates = {
-        body: ['<div class="env-modal-mask">', 
-                    '<div class="env-modal-dialog">', 
-                        '<div class="env-modal-content">', 
-                            '<button class="env-modal-btn-close"></button>', 
-                            '<header class="env-modal-header">', 
-                                '<p class="env-modal-title"></p>', 
-                            '</header>', 
-                            '<div class="env-modal-body"></div>', 
-                            '<footer class="env-modal-footer"></footer>', 
-                        '</div>', 
-                    '</div>', 
+        body: ['<div class="env-modal-mask">',
+                    '<div class="env-modal-dialog">',
+                        '<div class="env-modal-content">',
+                            '<button class="env-modal-btn-close"></button>',
+                            '<header class="env-modal-header">',
+                                '<p class="env-modal-title"></p>',
+                            '</header>',
+                            '<div class="env-modal-body"></div>',
+                            '<footer class="env-modal-footer"></footer>',
+                        '</div>',
+                    '</div>',
                 '</div>'].join(''),
         btn: '<button></button>'
     };
@@ -43,7 +43,7 @@
     //========= constructor ==============
     function Plugins(element, options) {
         // do nothing if element is null or element is not a html element
-        if (element == null || ! (element instanceof HTMLElement)) {
+        if (!element || ! (element instanceof HTMLElement)) {
             return;
         }
 
@@ -74,7 +74,7 @@
                 _addButton.call(this, this.options.buttons[i]);
             }
         }
-    } 
+    }
     //========= constructor end ==============
 
     //========= public methods ==============
@@ -89,17 +89,17 @@
 
     Plugins.prototype.hide = function() {
         this.$mask.hide();
-    }
+    };
     //========= public methods end ==============
 
     //========= jQuery widget ==============
     $.fn.envModal = function(arg) {
-        if (this.length == 0) {
+        if (this.length === 0) {
             return this;
-        } else if (Plugins.prototype[arg] != null) {
+        } else if (!!Plugins.prototype[arg]) {
             var func = Plugins.prototype[arg];
             var ins = $(this[0]).data("envModal");
-            if (ins != null) {
+            if (!!ins) {
                 if (typeof func == "function") {
                     return func.apply(ins, Array.prototype.slice.call(arguments, 1));
                 } else {
@@ -109,13 +109,13 @@
         } else {
             this.each(function() {
                 var instance = $(this).data("envModal");
-                if (instance == null) {
+                if (!instance) {
                     instance = new Plugins(this, arg);
                     $.data(this, "envModal", instance);
                 }
             });
 
-            if (arg == null) {
+            if (!arg) {
                 return $(this[0]).data("envModal");
             } else {
                 return this;
@@ -124,4 +124,4 @@
     };
     //========= jQuery widget end==============
 
-})(jQuery);
+} (jQuery);
